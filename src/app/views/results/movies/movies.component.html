@@ -1,0 +1,36 @@
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let m of movie">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{m.title}}
+      </mat-panel-title>
+      <span style="margin: 0 auto;"><mat-panel-description>
+        {{m.releaseDate}}
+      </mat-panel-description>
+</span>
+      <span style="margin: 0 auto;">
+      <mat-panel-description>
+
+      </mat-panel-description>
+        </span>
+    </mat-expansion-panel-header>
+
+    <img [src]="'https://image.tmdb.org/t/p/w185_and_h278_bestv2/'  + m.posterPath">
+
+    <div style="float: right">
+      <mat-list role="list" >
+        <mat-list-item role="listitem" >
+        </mat-list-item>
+
+      </mat-list>
+    </div>
+
+
+    <span [innerHTML]="m.overview"></span>
+
+    <mat-action-row>
+      <button mat-flat-button color="primary">Details</button>
+    </mat-action-row>
+
+  </mat-expansion-panel>
+</mat-accordion>

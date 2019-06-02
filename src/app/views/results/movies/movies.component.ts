@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MoviedbService} from '../../../models/moviedb.service';
+import {ActivatedRoute} from '@angular/router';
+import {Movie} from '../../../models/Movie';
 
 @Component({
   selector: 'app-movies',
@@ -7,12 +9,31 @@ import {MoviedbService} from '../../../models/moviedb.service';
   styleUrls: ['./movies.component.scss']
 })
 export class MoviesComponent implements OnInit {
-  query = 'Synecdoche+New+York';
-  constructor(private moviedb: MoviedbService) {}
+  query: string;
+  movie: Movie[];
+  constructor(private moviedb: MoviedbService,  private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.moviedb.movieSearch(this.query).subscribe( results => {
-      console.log(results);
+
+    this.route.paramMap.subscribe(params => {
+      this.query = params.get('query');
+
+
     });
+
+
+    this.moviedb.movieSearch(this.query).subscribe( results => {
+
+      console.log = results;
+      this.movie = results;
+    });
+
+
+}
+
+   searchMovies() {
+
+
+
   }
 }
