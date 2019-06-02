@@ -14,3 +14,6 @@ Your final project must:
 - use a library to style things nicely.
 
 You are expected to keep a GitHub repo and update it as you work.  
+
+##### Acknowledgements
+This project uses the moviedb api [click here to read the docs](https://developers.themoviedb.org/3/movies/get-movie-details).
